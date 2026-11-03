@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="id" data-theme="light"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Valauera 1.4 — The Art of Living</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%23FFC21A'/%3E%3Cpath d='M16 29V11' stroke='%230D2B21' stroke-width='5'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;800&family=Hanken+Grotesk:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/driver.js@1.3.1/dist/driver.css">
+<link rel="stylesheet" href="styles.css">
+</head><body>
+<header class="top"><a class="logo" href="#atas" data-route="home">vala<span>uera</span></a><nav aria-label="Navigasi utama">
+<button class="navlink route-link" data-route="plants">Tanaman</button><button class="navlink route-link" data-route="community">Komunitas</button><button class="navlink route-link" data-route="studio">Plant studio</button><button class="navlink route-link" data-route="journal">Artikel</button><button class="navlink route-link" data-route="events">Agenda</button><button class="navlink route-link" data-route="about">Tentang</button>
+<button class="btn g" data-a="sell">Titip jual</button><button class="btn g" data-a="wish" aria-label="Tanaman tersimpan">Simpan <span class="cnt" id="wc">0</span></button>
+<button class="btn g" data-a="acc" id="ab">Masuk</button><label class="sr-only" for="languageSelect">Bahasa</label><select id="languageSelect" class="language-select" aria-label="Pilih bahasa"><option value="id">ID</option><option value="en">EN</option><option value="ja">日本語</option></select><button class="btn g" id="mode" aria-label="Mode terang atau gelap">Mode</button>
+<button class="btn" data-a="cart">Tas <span class="cnt" id="cc">0</span></button></nav></header>
+<main id="atas"><section class="hero"><div>
+<p class="eyebrow">A little greener, a little more you</p>
+<h1>Ruang hidup, <em>bernapas.</em></h1>
+<p class="lead">Temukan tanaman yang cocok dengan ruang, ritme, dan kepribadianmu. Bukan cuma mempercantik sudut rumah — tapi menumbuhkan cerita kecil setiap hari.</p>
+<div class="acts"><a class="btn" href="#koleksi">Temukan tanaman <span>↗</span></a><a class="btn g" href="#studio">Kenali ruangmu</a><button class="btn g" data-a="guide">Tur singkat</button></div>
+<div class="stats"><p class="m"><b>01—09</b>kurasi tanaman</p><p class="m"><b>Plant people</b>komunitas tumbuh</p><p class="m"><b>Made to live</b>panduan perawatan</p></div></div>
+<div class="art" id="art"><svg viewBox="0 0 400 448" aria-hidden="true">
+<g class="p" style="--k:.5"><circle cx="262" cy="150" r="112" fill="#FFC21A"/></g>
+<g class="p" style="--k:1"><path d="M0 448V330a110 110 0 0 1 220 0v118z" fill="#FF8F7A"/></g>
+<g class="p" style="--k:1.6"><rect x="268" y="262" width="104" height="104" fill="#CFE84A" transform="rotate(14 320 314)"/></g>
+<g class="p" style="--k:1.9"><ellipse cx="0" cy="-170" rx="22" ry="170" fill="#1B7A4B" transform="translate(200 372) rotate(-38)"/><ellipse cx="0" cy="-215" rx="22" ry="215" fill="#0D2B21" transform="translate(200 372) rotate(-16)"/><ellipse cx="0" cy="-250" rx="22" ry="250" fill="#1B7A4B" transform="translate(200 372) rotate(4)"/><ellipse cx="0" cy="-205" rx="22" ry="205" fill="#0D2B21" transform="translate(200 372) rotate(22)"/><ellipse cx="0" cy="-150" rx="22" ry="150" fill="#1B7A4B" transform="translate(200 372) rotate(40)"/></g>
+<g class="p" style="--k:.8"><path d="M138 366h124l-16 82H154z" fill="#F4F6EC" stroke="#0D2B21" stroke-width="4"/></g>
+<g class="p" style="--k:2.6"><circle cx="86" cy="104" r="16" fill="#0D2B21"/></g></svg></div></section>
+<div class="marquee"><span>GROW SLOW • LIVE GREEN • COLLECT STORIES • GROW SLOW • LIVE GREEN • COLLECT STORIES •</span></div>
+<div class="promise"><article><b>Kurasi, bukan sekadar stok.</b><p class="m">Tanaman dipilih berdasarkan karakter, kebutuhan, dan daya hidupnya.</p></article><article><b>Rawat dengan percaya diri.</b><p class="m">Setiap tanaman punya panduan awal agar kamu nggak mulai dari nol.</p></article><article><b>Belanja dari plant people.</b><p class="m">Temukan koleksi dari Valauera dan penjual komunitas.</p></article></div>
+<section class="sec"><div class="hd"><div><p class="eyebrow">Browse by personality</p><h2>Cari lewat gaya</h2></div><p class="m">Pilih mood yang paling dekat dengan ruang dan gaya hidupmu.</p></div><div class="cats" id="cats"></div></section>
+<section class="sec daily-plant-note"><div class="daily-note-card"><div><p class="eyebrow">PLANT NOTE · EVIDENCE-BASED</p><h2>Jeda hari ini: baca kebutuhan tanamanmu.</h2><p>Jangan menyiram hanya karena jadwal. Periksa media, amati cahaya yang benar-benar diterima, dan pastikan pot memiliki drainase. Tiga kebiasaan sederhana ini lebih berguna daripada mengikuti rutinitas yang sama untuk semua tanaman.</p><div class="acts"><a class="btn" href="https://extension.umd.edu/resource/watering-indoor-plants" target="_blank" rel="noopener">Panduan penyiraman ↗</a><a class="btn g" href="https://extension.illinois.edu/houseplants/get-started" target="_blank" rel="noopener">Panduan dasar tanaman ↗</a></div></div><div class="daily-note-side"><span>01 / OBSERVE</span><b>Amati dulu.</b><span>02 / UNDERSTAND</span><b>Kenali kebutuhannya.</b><span>03 / CARE</span><b>Rawat seperlunya.</b></div></div></section>
+<section class="sec" id="koleksi"><div class="hd"><div><p class="eyebrow">The living collection</p><h2>Tanaman pilihan</h2></div><div class="acts"><p class="m" id="hit" aria-live="polite"></p><button class="btn g" data-a="shopSurvey">Bantu aku memilih</button></div></div>
+<div class="ctl"><div class="s"><label for="q">Cari</label><input id="q" type="search" placeholder="Nama atau nama latin"></div>
+<div><label for="fc">Jenis</label><select id="fc"></select></div>
+<div><label for="fl">Cahaya</label><select id="fl"><option value="semua">Semua</option><option>terang</option><option>sedang</option><option>teduh</option></select></div>
+<div><label for="fp">Harga</label><select id="fp"><option value="0-0">Semua</option><option value="0-60000">Di bawah Rp60.000</option><option value="60000-130000">Rp60.000 sampai Rp130.000</option><option value="130000-0">Di atas Rp130.000</option></select></div>
+<div><label for="so">Urutkan</label><select id="so"><option value="rec">Pilihan kami</option><option value="pa">Termurah</option><option value="pd">Termahal</option><option value="rt">Rating tertinggi</option><option value="lj">Paling jarang disiram</option></select></div>
+<button class="chip" id="tl" aria-pressed="false">Aman untuk hewan</button><button class="btn g" id="rs">Reset</button></div>
+<div class="grid" id="grid"></div></section></main>
+
+<section class="sec" id="studio"><div class="feature-band"><div><p class="eyebrow">Valauera plant studio · 01</p><h2>Tanaman yang cocok dengan hidupmu.</h2><p>Masih bingung mulai dari mana? Jawab beberapa pertanyaan sederhana. Kami bantu menyaring tanaman berdasarkan cahaya ruangan, waktu luang, dan pengalaman merawat.</p><button class="btn" data-a="finder">Mulai plant finder ↗</button></div><div class="feature-art"><strong>Find your kind of green.</strong></div></div>
+<div class="hd" style="margin-top:56px"><div><p class="eyebrow">Tools for plant people</p><h2>Lebih dari sekadar belanja.</h2></div><p class="m">Ruang kecil untuk belajar, merawat, dan menikmati proses tumbuh.</p></div>
+<div class="tool-grid">
+<article class="tool-card"><span class="num">01 / CARE</span><h3>Care planner</h3><p>Buat jadwal siram sederhana berdasarkan tanaman yang kamu punya. Simpan pengingat di perangkat ini.</p><button class="btn g" data-a="care">Atur jadwal ↗</button></article>
+<article class="tool-card"><span class="num">02 / KNOWLEDGE</span><h3>Plant clinic</h3><p>Kenali tanda umum tanaman stres dan langkah awal yang bisa kamu lakukan di rumah.</p><button class="btn g" data-a="clinic">Buka plant clinic ↗</button></article>
+<article class="tool-card"><span class="num">03 / COMMUNITY</span><h3>Plant journal</h3><p>Catat perkembangan daun baru, repotting, atau cerita kecil dari tanaman kesayanganmu.</p><button class="btn g" data-a="journal">Tulis catatan ↗</button></article>
+</div></section>
+<section class="sec community-section" id="community">
+  <div class="community-intro">
+    <div>
+      <p class="eyebrow">Valauera society · plant people, real stories</p>
+      <h2>Bukan cuma punya tanaman. Punya dunia di sekitarnya.</h2>
+      <p class="community-copy">Tempat bertukar pengalaman, belajar dari kolektor lain, menemukan tanaman lokal, dan merayakan proses tumbuh. Dari pemilik satu pot pertama sampai kolektor yang sudah bertahun-tahun berkebun.</p>
+      <div class="acts"><button class="btn" data-route="community">Jelajahi komunitas</button><button class="btn g" data-a="journal">Bagikan cerita</button></div>
+    </div>
+    <aside class="community-note">
+      <span class="note-kicker">OUR COMMON GROUND</span>
+      <strong>Good plants.<br>Good people.<br>Better growing.</strong>
+      <p>Ruang yang terbuka untuk rasa ingin tahu, pengalaman, dan kecintaan pada alam.</p>
+    </aside>
+  </div>
+  <div class="community-hub">
+    <div class="community-tabs" role="tablist" aria-label="Ruang komunitas">
+      <button class="community-tab active" data-community-tab="stories">Cerita</button><button class="community-tab" data-community-tab="friends">Teman</button><button class="community-tab" data-community-tab="questions">Tanya jawab</button><button class="community-tab" data-community-tab="quests">Quest harian</button>
+    </div>
+    <section class="community-pane" data-community-pane="stories"><div class="hub-heading"><div><p class="eyebrow">STORY CIRCLE</p><h2>Cerita yang sedang tumbuh</h2></div><button class="btn" data-a="addStory">+ Buat story</button></div><div class="story-strip" id="storyStrip"></div><div class="hub-heading" style="margin-top:24px"><div><p class="eyebrow">FROM YOUR FRIENDS</p><h2>Aktivitas teman</h2></div></div><div class="friend-activity" id="friendActivity"></div></section>
+    <section class="community-pane" data-community-pane="friends" hidden><div class="hub-heading"><div><p class="eyebrow">PLANT PEOPLE</p><h2>Temukan teman tanam</h2><p class="m">Lihat koleksi, minat, dan tanaman yang sedang dirawat temanmu.</p></div><input id="friendSearch" type="search" placeholder="Cari nama atau tanaman..."></div><div class="friend-grid" id="friendGrid"></div></section>
+    <section class="community-pane" data-community-pane="questions" hidden><div class="hub-heading"><div><p class="eyebrow">GROWER LEVEL</p><h2>Belajar dari pengalaman</h2><p class="m">Kontribusi membantu memberi EXP dan membuka gelar komunitas.</p></div><button class="btn" data-thread="new">Tanya komunitas</button></div><div class="rank-guide"><div><b>New</b><span>0–49 EXP</span></div><div><b>Junior</b><span>50–199 EXP</span></div><div><b>Senior</b><span>200+ EXP</span></div></div><div class="question-feed" id="questionFeed"></div></section>
+    <section class="community-pane" data-community-pane="quests" hidden><div class="hub-heading"><div><p class="eyebrow">SMALL DAILY RITUALS</p><h2>Quest kebun hari ini</h2><p class="m">Kebiasaan kecil, dilakukan dengan tenang. Centang jika sudah dilakukan.</p></div><strong class="xp-total" id="xpTotal">0 EXP</strong></div><div class="quest-list" id="questList"></div></section>
+  </div>
+  <div class="community-metrics">
+    <div><b>01</b><span>Mulai dari rasa ingin tahu</span></div>
+    <div><b>02</b><span>Belajar dari pengalaman nyata</span></div>
+    <div><b>03</b><span>Tumbuh bersama, bukan berlomba</span></div>
+  </div>
+  <div class="community-board" id="community-board">
+    <div class="community-board-head">
+      <div><p class="eyebrow">The greenhouse conversations</p><h2>Obrolan yang sedang tumbuh.</h2></div>
+      <span class="board-status">COMMUNITY PREVIEW</span>
+    </div>
+    <div class="discussion-grid">
+      <article class="discussion discussion-feature">
+        <div class="discussion-art discussion-art-one"><span>FIELD NOTE 014</span><div class="leaf-mark"></div></div>
+        <div class="discussion-body"><p class="discussion-meta">DISKUSI · 20 TANGGAPAN</p><h3>Monstera baru mengeluarkan daun. Kapan waktu yang tepat untuk repotting?</h3><p>Berbagi pengalaman soal akar, media tanam, dan tanda tanaman siap pindah rumah.</p><div class="discussion-foot"><span>Oleh Nenek Sari · Penghobi rumahan</span><button class="thread-link" data-thread="grandma">Buka diskusi</button></div></div>
+      </article>
+      <article class="discussion">
+        <div class="discussion-art discussion-art-two"><span>GROWER'S QUESTION</span><div class="sun-disc"></div></div>
+        <div class="discussion-body"><p class="discussion-meta">TANYA JAWAB · 09 TANGGAPAN</p><h3>Rekomendasi tanaman untuk balkon yang kena matahari pagi?</h3><p>Diskusi pilihan tanaman berdasarkan cahaya dan kondisi ruang.</p><div class="discussion-foot"><span>Oleh Damar · Plant enthusiast</span><button class="thread-link" data-thread="balcony">Buka diskusi</button></div></div>
+      </article>
+      <article class="discussion">
+        <div class="discussion-art discussion-art-three"><span>COMMUNITY PICK</span><div class="pot-mark"></div></div>
+        <div class="discussion-body"><p class="discussion-meta">INSPIRASI · 24 TANGGAPAN</p><h3>Sudut hijau paling sederhana yang bikin rumah terasa hidup.</h3><p>Ide menata tanaman tanpa harus memenuhi seluruh ruangan.</p><div class="discussion-foot"><span>Oleh Rani · Plant stylist</span><button class="thread-link" data-thread="green-corner">Buka diskusi</button></div></div>
+      </article>
+    </div>
+  </div>
+  <div class="member-feature">
+    <div class="member-copy"><p class="eyebrow">People behind the leaves</p><h2>Setiap koleksi punya cerita. Setiap orang punya cara tumbuh.</h2><p>Kenali para plant people yang berbagi pengetahuan, merawat koleksi, dan membantu ekosistem tanaman lokal tetap hidup.</p><button class="text-link" data-route="community">Kenali ruang komunitas</button></div>
+    <div class="member-stack">
+      <article><span class="member-index">01 / COLLECTOR</span><b>Para kolektor</b><p>Berbagi pengalaman merawat dan cerita di balik koleksi.</p></article>
+      <article><span class="member-index">02 / GROWER</span><b>Grower lokal</b><p>Memperkenalkan tanaman hasil rawat dan budidaya sendiri.</p></article>
+      <article><span class="member-index">03 / CURIOUS BEGINNER</span><b>Pemula yang ingin belajar</b><p>Bertanya, mencoba, dan berkembang tanpa takut salah.</p></article>
+    </div>
+  </div>
+  <div class="community-articles">
+    <div class="community-board-head"><div><p class="eyebrow">THE FIELD GUIDE</p><h2>Pengetahuan yang bisa dipraktikkan.</h2></div><span class="board-status">RUJUKAN EDUKATIF</span></div>
+    <div class="article-grid">
+      <article class="article-card"><span class="article-no">01 / WATER</span><h3>Jangan menyiram hanya karena kalender bilang begitu.</h3><p>Kebutuhan air dipengaruhi jenis tanaman, media, suhu, dan kelembapan. Periksa kondisi media terlebih dahulu; tanah yang terus basah dapat mengurangi udara yang tersedia bagi akar.</p><button class="thread-link" data-article="water">Baca artikel lengkap</button><a href="https://extension.umd.edu/resource/watering-indoor-plants" target="_blank" rel="noopener">Sumber: University of Maryland ↗</a></article>
+      <article class="article-card"><span class="article-no">02 / LIGHT</span><h3>Cahaya bukan sekadar soal dekat atau jauh dari jendela.</h3><p>Arah jendela, penghalang cahaya, musim, dan intensitas sinar ikut menentukan kondisi tanaman. Kenali kebutuhan spesies sebelum memindahkan pot ke matahari langsung.</p><button class="thread-link" data-article="light">Baca artikel lengkap</button><a href="https://extension.arizona.edu/sites/default/files/2024-10/IndoorPlantCare.pdf" target="_blank" rel="noopener">Sumber: University of Arizona ↗</a></article>
+      <article class="article-card"><span class="article-no">03 / ROOTS</span><h3>Drainase itu kebutuhan, bukan dekorasi pot.</h3><p>Lubang drainase membantu kelebihan air keluar. Media yang terlalu jenuh air dapat mengurangi oksigen di sekitar akar, sehingga pot dan tatakan perlu diperiksa setelah penyiraman.</p><button class="thread-link" data-article="drainage">Baca artikel lengkap</button><a href="https://extension.illinois.edu/houseplants/get-started" target="_blank" rel="noopener">Sumber: Illinois Extension ↗</a></article>
+    </div>
+    <p class="article-disclaimer">Artikel ini merupakan ringkasan edukatif dari sumber hortikultura yang dicantumkan. Kebutuhan tiap spesies dapat berbeda.</p>
+  </div>
+  <div class="community-cta"><div><p class="eyebrow">Your place in the greenhouse</p><h2>Ada ruang untuk caramu mencintai tanaman.</h2><p>Mulai dari berbagi cerita, bertanya, atau memperkenalkan tanaman dari koleksimu.</p></div><button class="btn" data-thread="new">Mulai diskusi</button></div>
+</section>
+<section class="sec" id="journal"><div class="hd"><div><p class="eyebrow">THE VALAUERA JOURNAL</p><h2>Artikel, cerita, dan panduan.</h2></div><p class="m">Cerita, pengetahuan, dan inspirasi untuk sudut hijau milikmu.</p></div>
+<div class="journal"><article class="journal-main"><div><p class="eyebrow">Field note / 001</p><h3>Ritual kecil merawat tanaman di ruang yang sibuk.</h3><p>Mulai dari mengenali cahaya, membaca kondisi tanah, sampai menikmati prosesnya.</p></div><span class="eyebrow">Read · 4 min</span></article>
+<div class="journal-side"><article><p class="eyebrow">Beginner guide</p><h3>First plant, no pressure.</h3><p class="m">Memilih tanaman pertama yang realistis untuk rutinitasmu.</p></article><article><p class="eyebrow">Room styling</p><h3>Green corners, good energy.</h3><p class="m">Ide menata tanaman di meja, rak, dan sudut kamar.</p></article></div></div></section>
+<section class="sec" id="community-extra"><div class="community"><div><p class="eyebrow">The plant people club</p><h2>Setiap ruang punya cerita hijau.</h2><p class="m">Ikut berbagi proses tumbuh, temukan penjual lokal, dan mulai koleksi pertamamu.</p></div><button class="btn" data-a="sell">Gabung sebagai penjual ↗</button></div></section>
+
+<section class="sec" id="events" hidden>
+ <div class="section-intro-card"><div><p class="eyebrow">MEET OUTSIDE THE SCREEN</p><h2>Jeda sejenak. Ketemu di ruang hijau.</h2><p>Agenda komunitas untuk jalan santai, tukar tanaman, kelas pemula, dan kegiatan kecil di sekitar kota. Semua agenda di bawah ini adalah simulasi untuk demo Valauera.</p></div><div class="section-stamp">LOCAL<br>GATHERINGS<br>01—09</div></div>
+ <div class="event-tools"><label for="eventCity">Pilih kota simulasi</label><select id="eventCity"><option>Depok</option><option>Jakarta Selatan</option><option>Bandung</option><option>Yogyakarta</option></select><span id="eventCount">6 agenda simulasi</span></div>
+ <div class="event-grid" id="eventGrid"></div>
+ <p class="event-note">Catatan: nama tempat, tanggal, kapasitas, dan penyelenggara pada halaman ini adalah data fiktif untuk demonstrasi. Bukan acara nyata dan bukan undangan untuk datang ke lokasi sungguhan.</p>
+</section>
+<section class="sec" id="about" hidden>
+ <div class="about-hero"><p class="eyebrow">WHY VALAUERA EXISTS</p><h2>Internet boleh ramai. Ruang untuk bernapas tetap perlu ada.</h2><p>Valauera lahir dari gagasan sederhana: merawat tanaman bisa menjadi pintu untuk belajar, berkenalan, dan mengambil jeda dari rutinitas layar.</p></div>
+ <div class="about-grid">
+  <article class="about-card"><span class="article-no">THE BEGINNING</span><h3>Dibuat untuk siapa?</h3><p>Untuk orang yang pulang setelah hari panjang di depan komputer, penghuni kota yang ingin punya sudut hijau, pemula yang takut salah merawat, sampai kolektor senior yang senang berbagi pengalaman. Tidak harus sudah ahli untuk merasa diterima.</p></article>
+  <article class="about-card"><span class="article-no">THE PURPOSE</span><h3>Bukan sekadar toko tanaman.</h3><p>Valauera menggabungkan katalog perlengkapan, panduan berbasis rujukan, ruang tanya jawab, agenda komunitas, dan inspirasi kegiatan luar ruang. Belanja adalah salah satu bagian, bukan tujuan satu-satunya.</p></article>
+  <article class="about-card"><span class="article-no">THE PRINCIPLE</span><h3>Ramah, jelas, dan tidak menghakimi.</h3><p>Setiap halaman menjelaskan fungsi tombol dan langkah berikutnya. Bahasa dibuat sederhana, teks mudah dibaca, dan informasi perawatan tidak disamaratakan untuk semua spesies.</p></article>
+ </div>
+ <div class="research-panel"><p class="eyebrow">WHAT RESEARCH SAYS</p><h3>Kenapa mendekat ke alam?</h3>
+  <p>Sebuah tinjauan sistematis dan meta-analisis tentang terapi hortikultura melaporkan peningkatan pada sejumlah indikator psikologis dibanding kelompok kontrol, tetapi dampak pada indikator fisiologis tidak signifikan. Artinya, aktivitas berkebun berpotensi menjadi kegiatan pendukung kesejahteraan—bukan obat ajaib atau pengganti bantuan profesional.</p>
+  <p>Tinjauan sistematis lain tentang intervensi berbasis alam juga menemukan hasil yang menjanjikan pada sebagian studi, sambil menekankan variasi metode dan perlunya penelitian jangka panjang yang lebih kuat.</p>
+  <div class="research-links"><a href="https://pubmed.ncbi.nlm.nih.gov/37564307/" target="_blank" rel="noopener">Baca tinjauan terapi hortikultura · PubMed ↗</a><a href="https://pubmed.ncbi.nlm.nih.gov/42390719/" target="_blank" rel="noopener">Baca tinjauan intervensi berbasis alam · PubMed ↗</a></div>
+ </div>
+ <div class="founder-card"><div class="founder-mark">RA</div><div><p class="eyebrow">CREATED BY</p><h3>Rafa Adi Prabowo</h3><p>Pengembang demo Valauera. Proyek ini dibuat untuk mengeksplorasi bagaimana pengalaman digital dapat menghubungkan orang dengan tanaman, pengetahuan yang dapat dipercaya, dan komunitas yang terasa hangat.</p></div></div>
+ <div class="version-roadmap"><p class="eyebrow">VERSION JOURNEY</p><h3>Perjalanan versi Valauera</h3><p>Penomoran versi mengikuti pola X.Y: angka depan menunjukkan kelompok 10 update, sedangkan angka belakang menunjukkan urutan update di dalam kelompok tersebut. Versi saat ini adalah 1.4 — update keempat pada kelompok pertama. Versi 2.0 menandai dimulainya kelompok update kedua.</p>
+  <ol><li><b>1.0–1.2</b><span>Fondasi identitas, struktur halaman, dan katalog.</span></li><li><b>1.3</b><span>Perluasan katalog, komunitas, dan fitur dasar.</span></li><li class="current"><b>1.4</b><span>Bahasa konsisten, cerita visual, profil teman, bibit bergambar, dan forum lebih terbuka.</span></li><li><b>1.5–1.9</b><span>Ruang untuk iterasi lanjutan pada kelompok pertama.</span></li><li><b>2.0</b><span>Awal kelompok update kedua.</span></li></ol>
+ </div>
+</section>
+<footer><div><a class="logo" href="#atas" data-route="home">vala<span>uera</span></a><p class="m" style="margin-top:10px;max-width:28ch">A living space to discover plants, share knowledge, and take a breath.</p><p class="m" style="margin-top:8px">Valauera 1.4 · Dibuat oleh Rafa Adi Prabowo</p></div>
+<div><h4>Jelajah</h4><ul><li><a href="#" data-route="plants">Semua produk</a></li><li><a href="#" data-route="events">Agenda komunitas</a></li><li><a href="#" data-route="about">Tentang Valauera</a></li><li><a href="#" data-a="wish">Tersimpan</a></li><li><a href="#" data-a="cart">Keranjang</a></li></ul></div>
+<div><h4>Akun</h4><ul><li><a href="#" data-a="acc">Profil dan akun saya</a></li><li><a href="#" data-a="sell">Jual tanaman</a></li></ul></div>
+<div><h4>Kabar tanaman baru</h4><form class="news" id="nf"><input type="email" id="ne" placeholder="Email kamu" aria-label="Email" required><button class="btn" type="submit">Daftar</button></form></div></footer>
+<div class="scrim" id="sc"></div><div class="mobile-nav" aria-label="Navigasi bawah"><button data-route="home">Home</button><button data-route="plants">Tanaman</button><button data-route="community">Komunitas</button><button data-route="events">Agenda</button><button data-a="acc">Profil</button></div>
+<aside class="drw" aria-label="Panel belanja"><div class="dh"><h2 id="dt">Keranjang</h2><button class="btn g" data-a="x">Tutup</button></div>
+<div class="tabs"><button class="chip" data-a="cart" id="t1">Keranjang</button><button class="chip" data-a="wish" id="t2">Tersimpan</button></div>
+<div class="items" id="items"></div><div id="foot"><p class="m" id="ship"></p><div class="bar" id="bar"><i></i></div>
+<div class="sm"><span>Subtotal</span><span id="sub"></span></div><div class="sm"><span>Ongkir</span><span id="ong"></span></div>
+<div class="tt"><span>Total</span><b id="tot">Rp0</b></div><button class="btn w" id="co" data-a="co" disabled>Checkout</button></div></aside>
+<dialog id="md"></dialog><div id="toast" role="status" aria-live="polite"></div>
+
+
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/driver.js@1.3.1/dist/driver.js.iife.js"></script>
+<script defer src="app.js"></script>
+</body></html>
